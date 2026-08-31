@@ -6,10 +6,6 @@ on:
                 description: 'Deployment Environment (e.g. STAGING,PRODUCTION)'
                 required: true
                 type: string
-            NAMESPACE:
-                description: 'Kubernetes Namespace to deploy the application'
-                required: true
-                type: string
             IMAGE_NAME:
                 description: 'Docker Image Name without TAG'
                 required: true
@@ -22,7 +18,7 @@ jobs:
     deploy:
         environment: ${{ inputs.ENVIRONMENT }}   
         env: 
-            NAMESPACE: ${{ inputs.NAMESPACE }}
+            NAMESPACE: ${{ vars.NAMESPACE }}
         runs-on: github-actions-scaleset-demo
         steps: 
             - name: Checkout Repository
