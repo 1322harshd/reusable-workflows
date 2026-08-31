@@ -59,4 +59,5 @@ jobs:
             - name: Verify Deployment
               run: |
                 kubectl rollout status deployment/thinknyxapp -n $NAMESPACE
-                kubectl get all -n $NAMESPACE
+                kubectl get deployment,pods,svc -n $NAMESPACE
+
