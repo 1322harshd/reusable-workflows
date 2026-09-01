@@ -7,7 +7,7 @@ on:
                 required: true
                 type: string
 jobs:
-    deploy:
+    tests:
         environment: ${{ inputs.ENVIRONMENT }}
         runs-on: github-actions-scaleset-demo
         steps:
