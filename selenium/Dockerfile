@@ -51,7 +51,11 @@ RUN python3 -m venv /opt/venv
 ENV PATH="/opt/venv/bin:$PATH"
 
 WORKDIR /workspace
-COPY requirements-tests.txt /workspace/requirements-tests.txt
-RUN /opt/venv/bin/pip install --no-cache-dir -r /workspace/requirements-tests.txt
+
+COPY selenium/requirements.txt /workspace/requirements.txt
+
+RUN /opt/venv/bin/pip install \
+    --no-cache-dir \
+    -r /workspace/requirements.txt
 
 USER runner
